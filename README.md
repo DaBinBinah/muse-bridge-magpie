@@ -1,7 +1,6 @@
 # MuseBridge for Magpie
 
 - 服务端主仓库（MuseBridge）：https://github.com/DaBinBinah/muse-bridge
-- 本插件仓库：https://github.com/DaBinBinah/muse-bridge-magpie
 - npm 包：https://www.npmjs.com/package/muse-bridge-magpie
 
 在 [Magpie](https://usemagpie.ai)（兼容 OpenCode 插件）里通过你自己的
