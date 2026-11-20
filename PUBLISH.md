@@ -64,6 +64,7 @@ README 就是 Magpie 插件详情页正文。
 - token 选 Granular 的话必须选 "Read and write"，stage-only 会静默发布成
   `0.0.0-stage` 占位；
 - 搜索索引延迟几小时~一天，期间用确切包名直装仍然可用。
+- **tarball CDN 晚于元数据**：publish 成功后 `dist-tags` 几十秒可见，但 `.tgz` 文件可能再延迟 1~2 分钟（期间更新会报 tarball 404）。发布后先 `curl -I` 确认 tarball 返回 200 再通知用户点更新。
 
 ---
 
