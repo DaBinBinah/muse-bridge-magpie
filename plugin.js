@@ -87,7 +87,8 @@ export const MuseBridge = async () => ({
         });
         if (!res.ok) throw new Error(`/v1/models ${res.status}`);
         const body = await res.json();
-        return _internal.mapModels(body?.data ?? [], provider.models);
+        const mapped = _internal.mapModels(body?.data ?? [], provider.models);
+        return mapped ?? provider.models; // empty/absent list → static catalog
       } catch {
         // 上游 ping 失败时保留静态目录（契约约定：原样返回 provider.models）。
         return provider.models;
@@ -128,10 +129,13 @@ export const _internal = {
     return out;
   },
 
-  /** /v1/models rows → catalog entries, reusing base entries for known ids. */
+  /** /v1/models rows → catalog entries, reusing base entries for known ids.
+   * An empty/absent list (server hiccup, future version) falls back to the
+   * static catalog rather than wiping the model picker. */
   mapModels(list, base = {}) {
+    if (!Array.isArray(list) || !list.length) return null; // caller falls back
     const out = {};
-    for (const row of list ?? []) {
+    for (const row of list) {
       const id = typeof row === "string" ? row : row?.id;
       if (!id || NON_CHAT.has(id) || out[id]) continue;
       out[id] = base[id]

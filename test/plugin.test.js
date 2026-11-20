@@ -53,8 +53,9 @@ test("mapModels: reuses base entries, synthesizes new ids, drops non-chat", () =
   assert.equal(out["plain-string-id"].name, "plain-string-id → Muse Chat");
   assert.ok(!("muse-video" in out) && !("dall-e-3" in out));
   assert.ok(!("nope" in out));
-  assert.equal(Object.keys(_internal.mapModels([], base)).length, 0);
-  assert.equal(Object.keys(_internal.mapModels(undefined, base)).length, 0);
+  assert.equal(_internal.mapModels(undefined, base), null);  // → caller falls back
+  assert.equal(_internal.mapModels([], base), null);
+  assert.equal(_internal.mapModels("garbage", base), null);
 });
 
 test("forwardHeaders: adds Authorization, keeps existing, never duplicates", async () => {
