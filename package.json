@@ -1,12 +1,12 @@
 {
   "name": "muse-bridge-magpie",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Magpie / OpenCode provider plugin for MuseBridge: use muse.ai through your local MuseBridge OpenAI-compatible reverse proxy.",
   "license": "MIT",
   "author": "DaBinBinah",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DaBinBinah/muse-bridge.git"
+    "url": "git+https://github.com/DaBinBinah/muse-bridge-magpie.git"
   },
   "bugs": {
     "url": "https://github.com/DaBinBinah/muse-bridge/issues"
