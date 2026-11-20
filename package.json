@@ -1,0 +1,50 @@
+{
+  "name": "muse-bridge-magpie",
+  "version": "1.0.0",
+  "description": "Magpie / OpenCode provider plugin for MuseBridge: use muse.ai through your local MuseBridge OpenAI-compatible reverse proxy.",
+  "license": "MIT",
+  "author": "DaBinBinah",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaBinBinah/muse-bridge-magpie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DaBinBinah/muse-bridge/issues"
+  },
+  "homepage": "https://github.com/DaBinBinah/muse-bridge#readme",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "provider",
+    "magpie-plugin",
+    "magpie",
+    "muse",
+    "muse-ai",
+    "openai-compatible",
+    "reverse-proxy"
+  ],
+  "type": "module",
+  "main": "plugin.js",
+  "exports": {
+    ".": "./plugin.js"
+  },
+  "files": [
+    "plugin.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/plugin.test.js",
+    "check": "node --test test/plugin.test.js && node test/load-check.mjs",
+    "real-check": "node test/real-check.mjs"
+  },
+  "magpie": {
+    "name": "MuseBridge",
+    "summary": {
+      "en": "Use muse.ai in Magpie through your own MuseBridge reverse proxy — OpenAI-compatible, multi-account rotation, dashboard management, emulated tool calling.",
+      "zh": "通过你自己的 MuseBridge 反代在 Magpie 里使用 muse.ai：多账号轮换、可视化管理面板、支持（模拟）工具调用。需要本地先跑起 MuseBridge 服务。"
+    },
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzcyQjdGRiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNTYzRUIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE2IiBmaWxsPSJ1cmwoI2cpIi8+CiAgPHBhdGggZD0iTTE3IDQ2VjI0QzI0IDM3LjYgNDAgMzcuNiA0NyAyNFY0NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K",
+    "maxConcurrency": 4
+  }
+}
